@@ -2,15 +2,12 @@ class ManualsController < ApplicationController
   before_filter :parse_request_body, only: [:update]
 
   def update
-    validation_errors = JSON::Validator.fully_validate(
-      MANUAL_SCHEMA,
-      @parsed_request_body,
-      validate_schema: true
-    )
-    if validation_errors.empty?
+    validator = JsonSchema::Validator.new(MANUAL_SCHEMA)
+    validator.validate(@parsed_request_body)
+    if validator.errors.empty?
       render nothing: true, content_type: "application/json", status: 200
     else
-      render json: { status: "error", errors: validation_errors }, status: 422
+      render json: { status: "error", errors: JsonSchema::SchemaError.aggregate(validator.errors) }, status: 422
     end
   end
 end

@@ -1,7 +1,8 @@
 module ValidationHelpers
-  def get_validation_errors(schema, data, options = {})
-    options = { validate_schema: true }.merge(options)
-    JSON::Validator.fully_validate(schema, data, options)
+  def get_validation_errors(schema, data)
+    validator = JsonSchema::Validator.new(schema)
+    validator.validate(JSON.parse(data.to_json))
+    JsonSchema::SchemaError.aggregate(validator.errors)
   end
 end
 

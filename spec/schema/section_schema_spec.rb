@@ -11,10 +11,7 @@ describe 'section schema' do
 
   context 'a maximal document' do
     let(:errors) do
-      # Perform strict validation so that we know all keys in the example are
-      # allowed, and that we have included every key that can be included
-      # (although it will accept empty arrays where an array is expected).
-      get_validation_errors(SECTION_SCHEMA, maximal_section, strict: true)
+      get_validation_errors(SECTION_SCHEMA, maximal_section)
     end
 
     it 'should be valid' do

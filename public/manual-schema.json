@@ -17,39 +17,7 @@
       "type": "object",
       "properties": {
         "child_section_groups": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "title": {
-                "type": "string"
-              },
-              "child_sections": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "section_id": {
-                      "type": "string"
-                    },
-                    "title": {
-                      "type": "string"
-                    },
-                    "description": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "section_id",
-                    "title"
-                  ]
-                }
-              }
-            },
-            "required": [
-              "child_sections"
-            ]
-          }
+          "$ref": "child_section_groups-schema.json#/child_section_groups"
         }
       },
       "required": [
