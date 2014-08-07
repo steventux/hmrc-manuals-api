@@ -4,9 +4,6 @@ This app provides URLs for pushing HMRC manuals to the GOV.UK Publishing API.
 
 ## Connecting to the API
 
-The base path for the preview environment is:
-https://hmrc-manuals-api.preview.alphagov.co.uk
-
 Authentication is done with a token, which needs to be supplied in the Authorization HTTP header, like this:
 
 ```Authorization: Bearer your_token```
@@ -15,6 +12,11 @@ You also need to supply an Accept header and a Content-Type header:
 
     Accept: application/json
     Content-Type: application/json
+
+### Preview environment
+
+The base path for the preview environment is:
+https://hmrc-manuals-api.preview.alphagov.co.uk
 
 Please note that:
 * Tokens are environment specific, so preview and production will have different tokens.
