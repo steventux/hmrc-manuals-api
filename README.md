@@ -63,24 +63,28 @@ The `<manual-slug>` and `<section_slug>` will be used as part of the GOV.UK URL 
 * `201`: created successfully
   * Both `200`s and `201`s return a `Location` header and a response body containing the GOV.UK URL of the manual:
 
-        Location: https://www.gov.uk/hmrc-internal-manuals/<manual_slug>/<section_slug>
+    ```
+    Location: https://www.gov.uk/hmrc-internal-manuals/<manual_slug>/<section_slug>
 
-        {
-          "govuk_url": "https://www.gov.uk/hmrc-internal-manuals/<manual_slug>/<section_slug>"
-        }
+    {
+      "govuk_url": "https://www.gov.uk/hmrc-internal-manuals/<manual_slug>/<section_slug>"
+    }
+    ```
 
 * `400`: the request JSON isn't well-formed.
 * `409`: the slug is taken by content that is managed by another publishing tool.
 * `422`: there's a validation error. A response body would detail the errors:
 
-        {
-          "status": "error",
-          "errors": [
-            "error_message_1",
-            "error_message_2",
-            ...
-          ]
-        }
+    ```
+    {
+      "status": "error",
+      "errors": [
+        "error_message_1",
+        "error_message_2",
+        ...
+      ]
+    }
+    ```
 
 * `503`: the request could not be completed because the API or the Publishing API is unavailable.
 
