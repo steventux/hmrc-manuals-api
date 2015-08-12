@@ -36,6 +36,7 @@ class PublishingAPIManual
       enriched_data = add_base_path_to_child_section_groups(enriched_data)
       enriched_data = add_organisations_to_details(enriched_data)
       enriched_data = add_topic_links(enriched_data)
+      enriched_data = add_topic_tags(enriched_data)
       add_base_path_to_change_notes(enriched_data)
     end
   end
@@ -100,6 +101,16 @@ private
     end
 
     attributes
+  end
+
+  def add_topic_tags(topics, attributes)
+    all_topics = HMRCManualsAPI.content_register.entries('topic').to_a
+
+    topics = attributes['links']['topics']
+
+    attributes['details']['tags'] ||= topics.map do |content_id|
+      all_topics.select {|topic| topic["content_id"] == content_id }.first.base_path.gsub('/topic/', '')
+    end
   end
 
   def incoming_manual_is_valid

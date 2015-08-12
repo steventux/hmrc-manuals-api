@@ -19,6 +19,7 @@ class RummagerManual < RummagerBase
       'last_update'        => @publishing_api_manual['public_updated_at'],
       'format'             => MANUAL_FORMAT,
       'latest_change_note' => @publishing_api_manual['details']['change_notes'].first,
+      'specialist_sectors'=> @publishing_api_manual['details']['tags'],
     }
   end
 

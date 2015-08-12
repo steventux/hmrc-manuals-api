@@ -46,7 +46,7 @@ module TestDataHelpers
             change_note: 'Description of changes',
             published_at: '2013-12-23T00:00:00+01:00'
           }
-        ]
+        ],
       }
     }.merge(options).deep_stringify_keys
   end

@@ -15,6 +15,7 @@ module RummagerHelpers
         "published_at" => "2014-01-23T00:00:00+01:00",
         "base_path" => "/hmrc-internal-manuals/employment-income-manual/abc567"
       },
+      'specialist_sectors' => ['tax/vat'],
     }
   end
 

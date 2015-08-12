@@ -1,14 +1,25 @@
 require 'rails_helper'
 require 'gds_api/test_helpers/publishing_api'
 require 'gds_api/test_helpers/rummager'
+require 'gds_api/test_helpers/content_register'
 
 describe 'manuals resource' do
   include GdsApi::TestHelpers::PublishingApi
   include GdsApi::TestHelpers::Rummager
+  include GdsApi::TestHelpers::ContentRegister
 
   it 'confirms update of the manual' do
     stub_default_publishing_api_put
     stub_any_rummager_post
+    stub_content_register_entries('topic', [
+        {
+          "content_id" => "a-content-id",
+          "title" => "VAT",
+          "format" => "topic",
+          "base_path" => "/topic/tax/vat",
+        }
+      ]
+    )
 
     put_json '/hmrc-manuals/employment-income-manual', maximal_manual
 
