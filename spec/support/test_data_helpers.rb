@@ -52,6 +52,7 @@ module TestDataHelpers
   def valid_manual(options = {})
     {
       title: 'Employment Income Manual',
+      content_id: 'e6681b5d-69bd-4a6b-b5ee-591311872b3a',
       description: 'A manual about incoming employment',
       public_updated_at: '2014-01-23T00:00:00+01:00',
       update_type: 'minor',
@@ -103,6 +104,7 @@ module TestDataHelpers
   def valid_section(options = {})
     {
       title: 'A section on a part of employment income',
+      content_id: '1d03cf51-20c1-4c56-a9c5-8690f536cac0',
       public_updated_at: '2014-01-23T00:00:00+01:00',
       update_type: 'major',
       details: {
