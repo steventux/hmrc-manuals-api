@@ -106,6 +106,19 @@ Additionally, users of the API are required to follow the styleguide for slugs:
 
 Section IDs are validated to ensure that they can be converted to slugs by simply making them lowercase.
 
+## Content IDs
+
+Both manuals and sections have a required field `content_id`.
+
+This is a UUID string as described in [RFC 4122](https://www.ietf.org/rfc/rfc4122.txt) ([Wiki](https://en.wikipedia.org/wiki/Universally_unique_identifier)).
+
+For example: "30737dba-17f1-49b4-aff8-6dd4bff7fdca".
+
+This is a unique identifier for the piece of content. It is used as the reference with which content items can reference other content items on GOV.UK. For example, it is used for [tagging to topics](https://www.gov.uk/topic).
+
+Manuals and sections should always have the same content_id. It is not possible
+to send a previously-published document with the same slug but a different `content_id`.
+
 ## Markup
 
 All `body` attributes in manuals or manual sections may contain
